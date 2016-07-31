@@ -14,7 +14,6 @@ extern uint8_t uart_temp[200];
 
 //extern  struct _sys_data sys_data;
 
-
 EPS_soft_error_status EPS_obc_communication_init(void){
 
 	EPS_soft_error_status bootsequence_status = EPS_SOFT_ERROR_OBC_COMM_INIT;
@@ -40,11 +39,15 @@ EPS_soft_error_status EPS_obc_communication_service(void){
 
 	EPS_soft_error_status obc_com_status = EPS_SOFT_ERROR_OBC_COMM_SERVICE;
 
+
 	import_pkt(OBC_APP_ID, &eps_data.obc_uart);
+
 
 	check_timeouts();
 
+
 	export_pkt(OBC_APP_ID, &eps_data.obc_uart);
+
 
 	obc_com_status = EPS_SOFT_ERROR_OK;
 	return obc_com_status;
